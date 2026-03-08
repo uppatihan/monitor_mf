@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Premium iMind</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <!-- พื้นหลังที่เป็นทรงกลมเบลอเคลื่อนไหว -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="login-container" id="login-box">
+      <!-- Logo -->
+      <div class="logo-container">
+        <!-- ใช้วงกลมแทนโลโก้ไปก่อน หากมีไฟล์โลโก้สามารถแก้ src ได้เลย -->
+        <svg
+          width="60"
+          height="60"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+      </div>
+
+      <h2>Sign In</h2>
+      <p class="subtitle">Monitor workspace</p>
+
+      <div class="input-group">
+        <label for="txtUsername">Username</label>
+        <input
+          type="text"
+          id="txtUsername"
+          name="txtUsername"
+          placeholder="Abcdefg.xyz"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="txtPassword">Password</label>
+        <input
+          type="password"
+          id="txtPassword"
+          name="txtPassword"
+          placeholder="••••••••"
+        />
+      </div>
+
+      <button class="btn-login" type="button">Login</button>
+
+      <div class="footer">2026 © Software Solution By UPPEE</div>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Animated background elements */
+.blob {
+  position: absolute;
+  filter: blur(80px);
+  z-index: 1;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(41, 196, 255, 0.35); /* สีฟ้า/น้ำเงิน */
+  top: -15%;
+  left: -10%;
+  border-radius: 50%;
+  animation: moveBlob1 20s infinite alternate ease-in-out;
+}
+
+.blob-2 {
+  width: 600px;
+  height: 600px;
+  background: rgba(131, 58, 180, 0.3); /* สีม่วง */
+  bottom: -20%;
+  right: -10%;
+  border-radius: 50%;
+  animation: moveBlob2 25s infinite alternate ease-in-out;
+}
+
+@keyframes moveBlob1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(25%, 20%) scale(1.1);
+  }
+}
+
+@keyframes moveBlob2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-20%, -10%) scale(1.2);
+  }
+}
+
+/* Glassmorphism Card */
+.login-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px 45px;
+  width: 380px;
+  z-index: 2;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.logo-container img {
+  width: 100px; /* คุณสามารถเปลี่ยนชี้ไปที่โลโก้ iMind ได้ */
+  margin-bottom: 10px;
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2));
+  animation: pulseLogo 3s infinite alternate;
+}
+
+@keyframes pulseLogo {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+h2 {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 26px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+p.subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-size: 13px;
+  margin: -15px 0 10px 0;
+  font-weight: 300;
+}
+
+/* Form Controls */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.input-group label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.input-group input {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 14px 16px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.input-group input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Options (Remember me & Forgot Password) */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.options label {
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.options label:hover {
+  color: #fff;
+}
+
+.options input[type="checkbox"] {
+  accent-color: #00c6ff;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.options a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.options a:hover {
+  color: #fff;
+}
+
+/* Login Button */
+.btn-login {
+  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  margin-top: 5px;
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0, 114, 255, 0.4);
+  background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+}
+
+.btn-login:active {
+  transform: translateY(1px);
+}
+
+/* Language Switcher */
+.lang-switch {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.lang-switch a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.lang-switch a.active,
+.lang-switch a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.footer {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 20px;
+}
