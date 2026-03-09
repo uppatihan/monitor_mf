@@ -59,9 +59,9 @@ def perform_login(username, password):
         response = session.get(TARGET_URL, timeout=15)
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        viewstate = soup.find('input', id='__VIEWSTATE').get('value', '')
-        viewstategenerator = soup.find('input', id='__VIEWSTATEGENERATOR').get('value', '')
-        eventvalidation = soup.find('input', id='__EVENTVALIDATION').get('value', '')
+        viewstate = soup.find('input', id='__VIEWSTATE').get('value', '') if soup.find('input', id='__VIEWSTATE') else ''
+        viewstategenerator = soup.find('input', id='__VIEWSTATEGENERATOR').get('value', '') if soup.find('input', id='__VIEWSTATEGENERATOR') else ''
+        eventvalidation = soup.find('input', id='__EVENTVALIDATION').get('value', '') if soup.find('input', id='__EVENTVALIDATION') else ''
 
         payload = {
             '__EVENTTARGET': 'btnLogin',
@@ -89,9 +89,9 @@ def perform_login(username, password):
         if 'RequestListView' in final_response.url or error_text == "":
             if 'txtPassword' in final_response.text:
                  if error_text:
-                     return False, f"ล็อกอินไม่สำเร็จ: {error_text}", []
+                     return False, f"ล็อกอินไม่สำเร็จ: {error_text}", [], 0
                  else:
-                     return False, "ล็อกอินไม่สำเร็จ: รหัสผ่านอาจไม่ถูกต้อง", []
+                     return False, "ล็อกอินไม่สำเร็จ: รหัสผ่านอาจไม่ถูกต้อง", [], 0
             
             # ดึงข้อมูลจากตารางมาจัดรูปแบบ (หน้าแรก)
             tickets = parse_tickets(final_response.text)
