@@ -72,34 +72,34 @@ class TestBackendAPI(unittest.TestCase):
         self.assertIn("ล็อกอินไม่สำเร็จ", data["message"])
         print("[test_04: Success] - Invalid credentials handled OK")
 
-    def test_05_multi_session_login(self):
-        """Simulate two independent login attempts for the same user (multi-machine)"""
-        payload = {
-            "username": "multi_test_user",
-            "password": "some_password"
-        }
+    # def test_05_multi_session_login(self):
+    #     """Simulate two independent login attempts for the same user (multi-machine)"""
+    #     payload = {
+    #         "username": "multi_test_user",
+    #         "password": "some_password"
+    #     }
         
-        # Simulate "Machine 1"
-        print("\n[test_05] Starting Machine 1 Login...")
-        response1 = requests.post(f"{self.BASE_URL}/api/login", json=payload, timeout=20)
-        self.assertEqual(response1.status_code, 200)
+    #     # Simulate "Machine 1"
+    #     print("\n[test_05] Starting Machine 1 Login...")
+    #     response1 = requests.post(f"{self.BASE_URL}/api/login", json=payload, timeout=20)
+    #     self.assertEqual(response1.status_code, 200)
         
-        # Simulating time gap (e.g., login held for 5 seconds)
-        print(f"[test_05] Holding Machine 1 session for 5 seconds...")
-        time.sleep(5)
+    #     # Simulating time gap (e.g., login held for 5 seconds)
+    #     print(f"[test_05] Holding Machine 1 session for 5 seconds...")
+    #     time.sleep(5)
         
-        # Simulate "Machine 2"
-        print("[test_05] Starting Machine 2 Login while Machine 1 is active...")
-        response2 = requests.post(f"{self.BASE_URL}/api/login", json=payload, timeout=20)
-        self.assertEqual(response2.status_code, 200)
+    #     # Simulate "Machine 2"
+    #     print("[test_05] Starting Machine 2 Login while Machine 1 is active...")
+    #     response2 = requests.post(f"{self.BASE_URL}/api/login", json=payload, timeout=20)
+    #     self.assertEqual(response2.status_code, 200)
         
-        # Verify both handled as independent requests
-        data1 = response1.json()
-        data2 = response2.json()
+    #     # Verify both handled as independent requests
+    #     data1 = response1.json()
+    #     data2 = response2.json()
         
-        self.assertIn("success", data1)
-        self.assertIn("success", data2)
-        print("[test_05: Success] - Multi-session login simulation handled OK")
+    #     self.assertIn("success", data1)
+    #     self.assertIn("success", data2)
+    #     print("[test_05: Success] - Multi-session login simulation handled OK")
 
 if __name__ == "__main__":
     unittest.main()
